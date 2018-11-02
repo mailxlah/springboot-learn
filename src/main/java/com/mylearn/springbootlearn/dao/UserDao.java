@@ -1,6 +1,8 @@
 package com.mylearn.springbootlearn.dao;
 
 import org.eclipse.jdt.internal.compiler.lookup.SourceTypeBinding;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 /**
