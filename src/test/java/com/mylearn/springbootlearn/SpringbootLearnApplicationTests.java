@@ -1,5 +1,6 @@
 package com.mylearn.springbootlearn;
 
+import com.mylearn.springbootlearn.dao.User2Dao;
 import com.mylearn.springbootlearn.service.impl.RedisTemplateTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
