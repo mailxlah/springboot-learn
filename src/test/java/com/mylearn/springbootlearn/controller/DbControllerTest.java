@@ -2,6 +2,8 @@ package com.mylearn.springbootlearn.controller;
 
 import static org.junit.Assert.*;
 
+import jdk.nashorn.internal.runtime.logging.Logger;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,29 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 @SpringBootTest()
 @AutoConfigureMockMvc
 public class DbControllerTest {
+
+  @Before
+  public void setUp() throws Exception {
+  }
+
+  @Test
+  public void findAll() throws Exception {
+
+    ResultActions perform = mvc.perform(MockMvcRequestBuilders.get("/findAll"));
+    MvcResult mvcResult = perform.andReturn();
+    MockHttpServletResponse response = mvcResult.getResponse();
+    System.out.println(response.getContentAsString());
+  }
+
+  @Test
+  public void addUser() throws Exception {
+
+    ResultActions perform = mvc.perform(MockMvcRequestBuilders.get("/addUser/jack"));
+    MvcResult mvcResult = perform.andReturn();
+    MockHttpServletResponse response = mvcResult.getResponse();
+    System.out.println(response.getContentAsString());
+  }
+
   @Autowired
   private MockMvc mvc;
 
@@ -33,6 +58,7 @@ public class DbControllerTest {
     MvcResult mvcResult = perform.andReturn();
     MockHttpServletResponse response = mvcResult.getResponse();
     System.out.println(response.getContentAsString());
+
   }
 
 }

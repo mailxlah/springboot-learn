@@ -2,6 +2,8 @@ package com.mylearn.springbootlearn.controller;
 
 import com.mylearn.springbootlearn.bean.User2;
 import com.mylearn.springbootlearn.service.UserService;
+import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,4 +24,16 @@ public class DbController {
   public User2 getUserInfo(@PathVariable("ida") int ida){
     return userService.getInfo(ida);
   }
+
+  @RequestMapping("/addUser/{name}")
+  public Integer addUser(@PathVariable("name") String name){
+    return userService.addUser(name);
+  }
+
+  @RequestMapping("/findAll")
+  public List<Map> findAll(){
+    return userService.findAll();
+  }
+
+
 }

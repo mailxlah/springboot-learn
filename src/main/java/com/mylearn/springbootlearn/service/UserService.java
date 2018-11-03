@@ -1,8 +1,11 @@
 package com.mylearn.springbootlearn.service;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.mylearn.springbootlearn.bean.User2;
 import com.mylearn.springbootlearn.dao.User2Dao;
-import com.mylearn.springbootlearn.mapper.UserMapper;
+import java.util.List;
+import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,4 +34,28 @@ public class UserService {
 
     return user2;
   }
+
+  public Integer addUser(String name){
+    User2 user2 = new User2();
+    user2.setName(name);
+     user2Dao.add(user2);
+
+    return user2.getIda();
+  }
+
+  public List<Map> findAll(){
+    //分页插件: 查询第1页，每页10行
+    Page<User2> page = PageHelper.startPage(3, 1);
+
+    List<Map> all = user2Dao.findAll();
+    //数据表的总行数
+    page.getTotal();
+    //分页查询结果的总行数
+    page.size();
+    //第一个User对象，参考list，序号0是第一个元素，依此类推
+    page.get(0);
+
+    return all;
+  }
+
 }
