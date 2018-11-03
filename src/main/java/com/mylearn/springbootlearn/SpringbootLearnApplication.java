@@ -6,6 +6,7 @@ import com.mylearn.springbootlearn.bean.User2;
 import com.mylearn.springbootlearn.config.ImportDirect;
 import com.mylearn.springbootlearn.dao.User2Dao;
 import com.mylearn.springbootlearn.dao.UserDao;
+import com.mylearn.springbootlearn.dynamicconfig.DynamicDataSourceRegister;
 import com.mylearn.springbootlearn.register.MyImportBeanDefinitionRegistrar;
 import com.mylearn.springbootlearn.service.UserService;
 import java.util.List;
@@ -18,13 +19,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 //@Import(MyImportBeanDefinitionRegistrar.class)
 //@MapperScan("com.mylearn.springbootlearn.dao")
 @SpringBootApplication
-
+@Import({DynamicDataSourceRegister.class})
 @PropertySource("classpath:my.properties")
+@EnableAspectJAutoProxy
 //@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 public class SpringbootLearnApplication {
 

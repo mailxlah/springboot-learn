@@ -4,6 +4,7 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.mylearn.springbootlearn.bean.User2;
 import com.mylearn.springbootlearn.dao.User2Dao;
+import com.mylearn.springbootlearn.dynamicconfig.TargetDataSource;
 import java.util.List;
 import java.util.Map;
 import org.slf4j.Logger;
@@ -35,6 +36,7 @@ public class UserService {
     return user2;
   }
 
+  @TargetDataSource(name="ds1")
   public Integer addUser(String name){
     User2 user2 = new User2();
     user2.setName(name);
