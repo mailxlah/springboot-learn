@@ -25,7 +25,7 @@ import org.springframework.context.annotation.PropertySource;
 //@Import(MyImportBeanDefinitionRegistrar.class)
 //@MapperScan("com.mylearn.springbootlearn.dao")
 @SpringBootApplication
-@Import({DynamicDataSourceRegister.class})
+//@Import({DynamicDataSourceRegister.class})
 @PropertySource("classpath:my.properties")
 @EnableAspectJAutoProxy
 //@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})

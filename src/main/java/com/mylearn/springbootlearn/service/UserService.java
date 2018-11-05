@@ -21,6 +21,9 @@ import org.springframework.stereotype.Component;
 public class UserService {
 
   private Logger log = LoggerFactory.getLogger(UserService.class);
+
+
+
   public  void  log(){
     log.debug("user service debug");
     log.info("user service info");
@@ -36,7 +39,7 @@ public class UserService {
     return user2;
   }
 
-  @TargetDataSource(name="ds1")
+  @TargetDataSource(name="ds2")
   public Integer addUser(String name){
     User2 user2 = new User2();
     user2.setName(name);
