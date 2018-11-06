@@ -31,7 +31,10 @@ public class DbController {
 
   @RequestMapping("/addUser/{name}")
   public Integer addUser(@PathVariable("name") String name){
-    return userService.addUser(name);
+//    return userService.addUser(name);
+//    jdbcTemplate
+    return userService.addUser2(name);
+//    return userService.addUser3(name);
   }
 
   @RequestMapping("/findAll")

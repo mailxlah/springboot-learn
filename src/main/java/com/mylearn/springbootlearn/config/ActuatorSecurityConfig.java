@@ -13,16 +13,18 @@ import org.springframework.util.StringUtils;
 public class ActuatorSecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Autowired
-	Environment env;
-		@Override
-	    protected void configure(HttpSecurity http) throws Exception {
-			String contextPath = env.getProperty("management.context-path");
-			if(StringUtils.isEmpty(contextPath)) {
-				contextPath = "";
-			}http.csrf().disable();
-	        http.authorizeRequests()
-	        		.antMatchers("/**"+contextPath+"/**").authenticated()
-	                .anyRequest().permitAll()
-	                .and().httpBasic();
-	    }
+  Environment env;
+
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    String contextPath = env.getProperty("management.context-path");
+    if (StringUtils.isEmpty(contextPath)) {
+      contextPath = "";
+    }
+    http.csrf().disable();
+    http.authorizeRequests()
+        .antMatchers("/**" + contextPath + "/**").authenticated()
+        .anyRequest().permitAll()
+        .and().httpBasic();
+  }
 }
