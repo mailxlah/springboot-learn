@@ -23,7 +23,7 @@ public class TestInterFaceImpl implements TestInterFace {
   User user;
 
   @Autowired
-  RedisTemplate<Object,Object> redisTemplate;
+  RedisTemplate redisTemplate;
 
 
   @Override

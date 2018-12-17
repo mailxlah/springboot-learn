@@ -1,9 +1,8 @@
 package com.mylearn.springbootlearn.controller;
 
-import com.mylearn.springbootlearn.bean.User;
-import com.mylearn.springbootlearn.dao.UserDao;
+import com.mylearn.springbootlearn.dao.UserDaoa;
+import com.mylearn.springbootlearn.service.impl.RedisTemplateTest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +16,10 @@ public class BookController {
 
   @Autowired
 //  @Qualifier("userDao")
-  UserDao userDao;
+      UserDaoa userDao;
+
+  @Autowired
+  RedisTemplateTest rd;
 
   @GetMapping("/home/book")
   public String home() {
@@ -29,6 +31,18 @@ public class BookController {
     userDao.adduser(" zhangsan");
 
 
+
+
     return "book" + id;
   }
+
+  @GetMapping("/home/rd")
+  public String show() {
+rd.findAll();
+
+
+
+    return "book";
+  }
+
 }

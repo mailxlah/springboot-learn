@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
  * @Description:
  */
 @Repository
-public class UserDao {
+public class UserDaoa {
   public Integer adduser(String username){
     System.out.println("user dao adduser [username="+username+"]");
     if (username==null){

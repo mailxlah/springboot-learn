@@ -1,8 +1,5 @@
 package com.mylearn.springbootlearn.dao;
 
-import static org.junit.Assert.*;
-
-import javax.swing.Spring;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -17,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class UserDaoTest {
 
   @Autowired
-  UserDao userDao;
+  UserDaoa userDao;
   @Before
   public void setUp() throws Exception {
   }

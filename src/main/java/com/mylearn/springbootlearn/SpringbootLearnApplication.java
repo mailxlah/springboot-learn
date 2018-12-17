@@ -1,26 +1,13 @@
 package com.mylearn.springbootlearn;
 
-import com.mylearn.springbootlearn.bean.Broker;
-import com.mylearn.springbootlearn.bean.Forwards;
 import com.mylearn.springbootlearn.bean.User2;
-import com.mylearn.springbootlearn.config.ImportDirect;
 import com.mylearn.springbootlearn.dao.User2Dao;
-import com.mylearn.springbootlearn.dao.UserDao;
-import com.mylearn.springbootlearn.dynamicconfig.DynamicDataSourceRegister;
-import com.mylearn.springbootlearn.register.MyImportBeanDefinitionRegistrar;
 import com.mylearn.springbootlearn.service.UserService;
 import java.util.List;
-import org.eclipse.jdt.internal.compiler.batch.FileSystem.Classpath;
-import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 //@Import(MyImportBeanDefinitionRegistrar.class)
 //@MapperScan("com.mylearn.springbootlearn.dao")
