@@ -1,0 +1,40 @@
+package com.mylearn.springbootlearn.java8;
+
+
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+/**
+ * 筛选元素
+ *
+ * filter 使用
+ * distinct 使用
+ * limit 使用
+ * skip 使用
+ *
+ * @author biezhi
+ * @date 2018/2/12
+ */
+public class Example2 {
+
+    public static void main(String[] args) {
+        List<Project> projects = Project.buildData();
+
+        List<Project> collect = projects.stream()
+                .filter(project -> project.getStars() > 1000)
+                .collect(Collectors.toList());
+        collect.forEach(System.out::println);
+
+        // distinct
+        Stream<Integer> numbers = Stream.of(1, 2, 3, 3, 2, 4);
+        numbers.distinct().limit(3).forEach(n -> System.out.println(n));
+
+        System.out.println("===================");
+        // Stream.of(1, 2, 3, 3, 2, 4).skip(4).forEach(n -> System.out.println(n));
+        Stream.of(1, 2, 3, 3, 2, 4).skip(4).map(n ->{
+            System.out.println(n);
+             return "aa";} ).forEach(System.out::println);
+    }
+
+}

@@ -16,31 +16,32 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 
 import java.lang.reflect.Method;
+// import org.springframework.web.client.RestTemplate;
 
 @Configuration
-@EnableCaching
+// @EnableCaching
 public class RedisConfiguration extends CachingConfigurerSupport {
-    @Bean
-    public KeyGenerator cacheKeyGenerator() {
-        return new KeyGenerator() {
-            @Override
-            public Object generate(Object target, Method method, Object... params) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(target.getClass().getName());
-                sb.append(method.getName());
-                for (Object obj : params) {
-                    sb.append(obj.toString());
-                }
-                return sb.toString();
-            }
-        };
-
-    }
-
-    @Bean
-    public CacheManager cacheManager(@SuppressWarnings("rawtypes") RedisTemplate redisTemplate) {
-        return new RedisCacheManager(redisTemplate);
-    }
+    // @Bean
+    // public KeyGenerator cacheKeyGenerator() {
+    //     return new KeyGenerator() {
+    //         @Override
+    //         public Object generate(Object target, Method method, Object... params) {
+    //             StringBuilder sb = new StringBuilder();
+    //             sb.append(target.getClass().getName());
+    //             sb.append(method.getName());
+    //             for (Object obj : params) {
+    //                 sb.append(obj.toString());
+    //             }
+    //             return sb.toString();
+    //         }
+    //     };
+    //
+    // }
+    //
+    // @Bean
+    // public CacheManager cacheManager(@SuppressWarnings("rawtypes") RedisTemplate redisTemplate) {
+    //     return new RedisCacheManager(redisTemplate);
+    // }
 
     @Bean
     public RedisTemplate<String, String> redisTemplate(RedisConnectionFactory factory) {
@@ -54,4 +55,9 @@ public class RedisConfiguration extends CachingConfigurerSupport {
         template.afterPropertiesSet();
         return template;
     }
+
+    // @Bean
+    // public RestTemplate restTemplate() {
+    //     return new RestTemplate();
+    // }
 }

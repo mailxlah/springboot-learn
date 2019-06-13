@@ -30,17 +30,12 @@ public class BookController {
   public String show(@RequestParam("id") String id) {
     userDao.adduser(" zhangsan");
 
-
-
-
     return "book" + id;
   }
 
   @GetMapping("/home/rd")
   public String show() {
-rd.findAll();
-
-
+    rd.findAll();
 
     return "book";
   }

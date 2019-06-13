@@ -1,0 +1,37 @@
+package com.mylearn.springbootlearn.java8.completablefuture;
+
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
+import java.util.concurrent.ExecutionException;
+import java.util.function.Function;
+import java.util.function.Supplier;
+
+/**
+ * 扁平转换
+ *
+ * @author biezhi
+ * @date 2018/3/25
+ */
+public class CompletableFuture4 {
+
+    public static void main(String[] args) {
+        try {
+            String s = CompletableFuture.supplyAsync(() -> 23333)
+                    .thenCompose(new Function<Integer, CompletionStage<String>>() {
+                        @Override
+                        public CompletionStage<String> apply(Integer t) {
+                            return CompletableFuture.supplyAsync(new Supplier<String>() {
+                                @Override
+                                public String get() {
+                                    return t + "ddd";
+                                }
+                            });
+                        }
+                    })
+                    .get();
+            System.out.println(s);
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+}

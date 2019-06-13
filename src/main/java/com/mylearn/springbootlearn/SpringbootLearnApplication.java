@@ -32,6 +32,11 @@ public class SpringbootLearnApplication {
 
 //		System.out.println(context.toString());
 
+		// test(context);
+
+	}
+
+	private static void test(ConfigurableApplicationContext context) {
 		User2Dao bean = context.getBean(User2Dao.class);
 		System.out.println(bean);
 		User2 user2 = new User2();
@@ -40,12 +45,8 @@ public class SpringbootLearnApplication {
 		User2 user21 = byId.get(0);
 		System.out.println(user21);
 
-
 		context.getBean(UserService.class).log();
-
 	}
-
-
 
 
 }

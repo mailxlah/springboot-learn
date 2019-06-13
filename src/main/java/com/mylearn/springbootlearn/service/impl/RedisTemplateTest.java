@@ -88,7 +88,7 @@ public class RedisTemplateTest {
 		// -----------------zset数据类型操作 start------------------
 		ZSetOperations<String, Object> zSetOperations = redisTemplate
 		        .opsForZSet();
-		zSetOperations.add("zset", "fiala", 0);
+		zSetOperations.add("zset", demo4, 0);
 		zSetOperations.add("zset", "my fiala", 1);
 		System.out.println(zSetOperations.rangeByScore("zset", 0, 1));
 		// -----------------zset数据类型操作 end------------------

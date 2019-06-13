@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @Description:
  */
 @Configuration
-@EnableConfigurationProperties
+// @EnableConfigurationProperties
 public class Myconfig {
 
   @Bean
